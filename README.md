@@ -54,6 +54,12 @@ Step-by-step on how to deploy, configure and develop on this hackpack.
 
 ### Getting Started 
 
+0) Get the requirements:
+
+* [git](http://git-scm.com/)
+* [Heroku Toolbelt](https://toolbelt.heroku.com/)
+* [Python](http://python.org/download/)
+
 1) Grab latest source
 <pre>
 git clone git://github.com/RobSpectre/Twilio-Queue-Example.git 
