@@ -1,13 +1,14 @@
 import unittest
 from mock import patch
 
+from twilio.rest import TwilioRestClient
+
 from .context import app
 
 
 app.config['TWILIO_ACCOUNT_SID'] = 'ACxxxxxx'                                     
 app.config['TWILIO_AUTH_TOKEN'] = 'yyyyyyyyy'                                     
 app.config['TWILIO_CALLER_ID'] = '+15558675309'
-app.config['AGENT_NUMBER'] = '+15556667777'
 
 
 class TwiMLTest(unittest.TestCase):
@@ -64,16 +65,6 @@ class TwilioTests(TwiMLTest):
         response = self.call(url='/agent')
         self.assertTwiML(response)
 
-    @patch('twilio.rest.resources.SmsMessages', autospec=True)    
-    def test_wait(self, MockMessages):
-        app.twilio_client.sms.messages = MockMessages.return_value
-        app.twilio_client.sms.messages.create.return_value = True
-
+    def test_wait(self):
         response = self.call(url='/wait', extra_params={'QueuePosition': '1'})
-
         self.assertTwiML(response)
-        app.twilio_client.sms.messages.create.assert_called_with(
-            from_=app.config['TWILIO_CALLER_ID'],
-            to=app.config['AGENT_NUMBER'],
-            body="A caller is waiting in the support queue. " \
-                    "Call this number to answer.")

@@ -6,14 +6,11 @@ from flask import url_for
 from flask import render_template
 
 from twilio import twiml
-from twilio.rest import TwilioRestClient
 
 
 # Declare and configure application
 app = Flask(__name__, static_url_path='/static')
 app.config.from_pyfile('local_settings.py')
-app.twilio_client = TwilioRestClient(app.config['TWILIO_ACCOUNT_SID'],
-        app.config['TWILIO_AUTH_TOKEN'])
 
 
 # Configure this number to a toll-free Twilio number to accept incoming calls.
@@ -37,14 +34,6 @@ def wait():
     response.play("http://com.twilio.music.guitars.s3.amazonaws.com/" \
             "Pitx_-_Long_Winter.mp3")
     response.redirect('/wait')
-
-    # Notify agent of call via SMS
-    if app.config['AGENT_NUMBER']:
-        app.twilio_client.sms.messages.create(
-            from_=app.config['TWILIO_CALLER_ID'],
-            to=app.config['AGENT_NUMBER'],
-            body="A caller is waiting in the support queue. " \
-                    "Call this number to answer.")
     return str(response)
 
 
