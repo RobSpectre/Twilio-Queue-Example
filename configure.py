@@ -37,7 +37,7 @@ class Configure(object):
             auth_token=local_settings.TWILIO_AUTH_TOKEN,
             app_sid=local_settings.TWILIO_APP_SID,
             phone_number=local_settings.TWILIO_CALLER_ID,
-            voice_url='/voice',
+            voice_url='/caller',
             sms_url='/sms',
             host=None):
         self.account_sid = account_sid
@@ -146,7 +146,7 @@ class Configure(object):
                     logging.info("Creating new application...")
                     app = self.client.applications.create(voice_url=voice_url,
                             sms_url=sms_url,
-                            friendly_name="Hackpack for Heroku and Flask")
+                            friendly_name="Twilio Queue Example")
                     break
                 except TwilioRestException, e:
                     raise ConfigurationError("Your Twilio app couldn't " \
@@ -171,7 +171,7 @@ class Configure(object):
         try:
             app = self.client.applications.update(app_sid, voice_url=voice_url,
                     sms_url=sms_url,
-                    friendly_name="Hackpack for Heroku and Flask")
+                    friendly_name="Twilio Queue Example")
         except TwilioRestException, e:
             if "HTTP ERROR 404" in str(e):
                 raise ConfigurationError("This application sid was not " \
