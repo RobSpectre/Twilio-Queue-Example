@@ -327,9 +327,6 @@ parser.add_option("-a", "--app_sid", default=None,
         help="Configure specific AppSid to use your hackpack.")
 parser.add_option("-#", "--phone_number", default=None,
         help="Configure specific Twilio number to use your hackpack.")
-parser.add_option("-g", "--agent_number", default=None,
-        help="Configure the number you wish to be notified when someone is " \
-            "in the queue.")
 parser.add_option("-v", "--voice_url", default=None,
         help="Set the route for your Voice Request URL: (e.g. '/voice').")
 parser.add_option("-s", "--sms_url", default=None,
@@ -365,8 +362,6 @@ def main():
         configure.sms_url = options.sms_url
     if options.domain:
         configure.host = options.domain
-    if options.agent_number:
-        configure.agent_number = options.agent_number
     if options.debug:
         logging.basicConfig(level=logging.DEBUG,
                 format='%(levelname)s - %(message)s')
