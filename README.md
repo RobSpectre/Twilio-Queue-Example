@@ -2,7 +2,8 @@
 
 A hackpack example of using Twilio's new
 [Queue](http://www.twilio.com/docs/api/twiml/queue) verb to create a call-in
-queue.
+queue.  Not into Python?  Check out examples in other languages in the
+[Twilio Howto](http://www.twilio.com/docs/howto/callqueue).
 
 [![Build
 Status](https://secure.travis-ci.org/RobSpectre/Twilio-Queue-Example.png)]
@@ -26,6 +27,26 @@ Holy biscuits! It's got features!
   implementations. 
 * [PEP8](http://www.python.org/dev/peps/pep-0008/) - It's good for you!
 
+## Usage
+
+Install using the Getting Started instructions below and configure a pair of
+Twilio Phone Numbers with the two links provided - one for callers and one for
+agents.
+
+![Success
+page](https://raw.github.com/RobSpectre/Twilio-Queue-Example/master/static/images/screenshot.png)
+
+Callers are the people who are placed into the Queue, while Agents are the
+people who answer them.  In most implementations, "callers" can be considered
+customers who need support and "agents" are the service representatives
+responsible for providing it.
+
+To use this app, purchase two Twilio Phone Numbers and configure one number to
+use the Caller Voice Request URL and the other to use the Agent Voice Request
+URL.
+
+For an example in action, be sure to check out [Jon Gottfried's
+screencast](https://www.youtube.com/watch?v=AICLFi2djbs).
 
 ## Installation
 
