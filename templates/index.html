@@ -20,28 +20,24 @@
     </header>
     <section>
         <div id="content">
-            <h2 class="section-heading">You deployed Twilio Hackpack
-                for Heroku and Flask.</h2>
+            <h2 class="section-heading">You deployed Twilio Queue Example.</h2>
             <p class="blurb">Here are some important links:</p>
-            <a href="https://www.twilio.com/user/account/apps"
-               class="button">Configure Twilio</a>
+            <a href="https://www.twilio.com/user/account/phone-numbers/incoming"
+               class="button">Setup a Number</a>
             <dl id="url_list">
-                <dt>Voice Request URL</dt>
-                <dd><a href="{{params['voice_request_url'] }}">
-                    {{params['voice_request_url'] }}</a></dd>
-                <dt>SMS Request URL</dt>
-                <dd><a href="{{params['sms_request_url'] }}">
-                    {{params['sms_request_url'] }}</a></dd>
-                <dt>Client URL</dt>
-                <dd><a href="{{params['client_url'] }}">
-                    {{params['client_url'] }}</a></dd>
+                <dt>Voice Request URL for Callers</dt>
+                <dd><a href="{{params['caller_request_url'] }}">
+                    {{params['caller_request_url'] }}</a></dd>
+                <dt>Voice Request URL for Agents</dt>
+                <dd><a href="{{params['agent_request_url'] }}">
+                    {{params['agent_request_url'] }}</a></dd>
            </dl>
         </div>
     </section>
     <footer>
         <p class="footer">
             Source on <a
-                href="https://github.com/RobSpectre/Twilio-Hackpack-for-Heroku-and-Flask">Github</a>.
+                href="https://github.com/RobSpectre/Twilio-Queue-Example">Github</a>.
             Released under <a
                 href="http://www.opensource.org/licenses/mit-license.html">
                 MIT license</a>.

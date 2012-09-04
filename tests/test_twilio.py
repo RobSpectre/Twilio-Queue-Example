@@ -56,12 +56,12 @@ class TwiMLTest(unittest.TestCase):
 
 
 class TwilioTests(TwiMLTest):
-    def test_voice(self):
-        response = self.call()
+    def test_caller(self):
+        response = self.call(url='/caller')
         self.assertTwiML(response)
 
-    def test_queue(self):
-        response = self.call(url='/queue')
+    def test_agent(self):
+        response = self.call(url='/agent')
         self.assertTwiML(response)
 
     @patch('twilio.rest.resources.SmsMessages', autospec=True)    

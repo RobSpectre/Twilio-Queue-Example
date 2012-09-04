@@ -2,6 +2,8 @@ import os
 
 from flask import Flask
 from flask import request
+from flask import url_for
+from flask import render_template
 
 from twilio import twiml
 from twilio.rest import TwilioRestClient
@@ -15,8 +17,8 @@ app.twilio_client = TwilioRestClient(app.config['TWILIO_ACCOUNT_SID'],
 
 
 # Configure this number to a toll-free Twilio number to accept incoming calls.
-@app.route('/voice', methods=['GET', 'POST'])
-def enqueue():
+@app.route('/caller', methods=['GET', 'POST'])
+def caller():
     response = twiml.Response()
     response.say("Thank you for calling this demonstration of Twilio Queue " \
             "Please hold.")
@@ -47,12 +49,21 @@ def wait():
 
 
 # Connect to support queue - assign to Twilio number for agent to call.
-@app.route('/queue', methods=['GET', 'POST'])
-def queue():
+@app.route('/agent', methods=['GET', 'POST'])
+def agent():
     response = twiml.Response()
     with response.dial() as dial:
         dial.queue("Queue Demo")
     return str(response)
+
+
+# Installation success page.
+@app.route('/')
+def index():
+    params = {
+        'caller_request_url': url_for('.caller', _external=True),
+        'agent_request_url': url_for('.agent', _external=True)}
+    return render_template('index.html', params=params)
 
 
 # If PORT not specified by environment, assume development config.
