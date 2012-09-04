@@ -1,6 +1,6 @@
 # Twilio Queue Example
 
-A hackpack example of using Twilio's new
+A hackpack example using Twilio's new
 [Queue](http://www.twilio.com/docs/api/twiml/queue) verb to create a call-in
 queue.  Not into Python?  Check out examples in other languages in the
 [Twilio Howto](http://www.twilio.com/docs/howto/callqueue).
