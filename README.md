@@ -19,13 +19,13 @@ Holy biscuits! It's got features!
   [Enqueue](http://www.twilio.com/docs/api/twiml/enqueue) verb.  
 * _Agent Handling_ - Answers callers in the order they dialed in using TwiML's
   new [Queue](http://www.twilio.com/docs/api/twiml/queue) noun.
-* Automagic Configuration - Just run `python configure.py --account_sid ACxxxx --auth_token yyyyy` 
+* _Automagic Configuration_ - Just run `python configure.py --account_sid ACxxxx --auth_token yyyyy` 
   and this hackpack will Twilio and Heroku for you.
-* Plug-and-Play - Procfile, requirements.txt and Makefile make installation
+* _Plug-and-Play_ - Procfile, requirements.txt and Makefile make installation
   and usage a breeze.
-* Testing - Totally tested with examples for you to use in your larger
+* _Testing_ - Totally tested with examples for you to use in your larger
   implementations. 
-* [PEP8](http://www.python.org/dev/peps/pep-0008/) - It's good for you!
+* _[PEP8](http://www.python.org/dev/peps/pep-0008/)_ - It's good for you!
 
 ## Usage
 
